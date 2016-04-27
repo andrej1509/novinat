@@ -3,115 +3,93 @@
 	<div class="bx_section paysystem">
 		<h4><?=GetMessage("SOA_TEMPL_PAY_SYSTEM")?></h4>
 		<ul class="payment-method">
-		<?
-		uasort($arResult["PAY_SYSTEM"], "cmpBySort"); // resort arrays according to SORT value
-
-		foreach($arResult["PAY_SYSTEM"] as $arPaySystem)
-		{
-			if (count($arResult["PAY_SYSTEM"]) == 1)
-			{
-				?>
-				<li class="bx_element selectPaymentWay">
-					<input type="hidden" name="PAY_SYSTEM_ID" value="<?=$arPaySystem["ID"]?>">
-					<input type="radio"
-						id="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>"
-						name="PAY_SYSTEM_ID"
-						value="<?=$arPaySystem["ID"]?>"
-						<?if ($arPaySystem["CHECKED"]=="Y" && !($arParams["ONLY_FULL_PAY_FROM_ACCOUNT"] == "Y" && $arResult["USER_VALS"]["PAY_CURRENT_ACCOUNT"]=="Y")) echo " checked=\"checked\"";?>
-						onclick="changePaySystem();"
-						/>
-					<label for="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>" onclick="BX('ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>').checked=true;changePaySystem();">
-						<?
-						if (count($arPaySystem["PSA_LOGOTIP"]) > 0):
-							$imgUrl = $arPaySystem["PSA_LOGOTIP"]["SRC"];
-						else:
-							$imgUrl = $templateFolder."/images/logo-default-ps.gif";
-						endif;
-						?>
-						<div class="bx_logotype">
-							<span style="background-image:url(<?=$imgUrl?>);"></span>
-							<?if ($arParams["SHOW_PAYMENT_SERVICES_NAMES"] != "N"):?>
-								<strong><?=$arPaySystem["PSA_NAME"];?></strong>
-							<?endif;?>
-						</div>
-					</label>
-					<div class="clear"></div>
-				</li>
-				<?
-			}
-			else // more than one
-			{
-			?>
-				<li class="bx_element selectPaymentWay">
-					<input type="radio"
-						id="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>"
-						name="PAY_SYSTEM_ID"
-						value="<?=$arPaySystem["ID"]?>"
-						<?if ($arPaySystem["CHECKED"]=="Y" && !($arParams["ONLY_FULL_PAY_FROM_ACCOUNT"] == "Y" && $arResult["USER_VALS"]["PAY_CURRENT_ACCOUNT"]=="Y")) echo " checked=\"checked\"";?>
-						onclick="changePaySystem();" />
-					<label for="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>" onclick="BX('ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"]?>').checked=true;changePaySystem();">
-						<?
-						if (count($arPaySystem["PSA_LOGOTIP"]) > 0):
-							$imgUrl = $arPaySystem["PSA_LOGOTIP"]["SRC"];
-						else:
-							$imgUrl = $templateFolder."/images/logo-default-ps.gif";
-						endif;
-						?>
-						<div class="bx_logotype">
-							<span style='background-image:url(<?=$imgUrl?>);'></span>
-							<?if ($arParams["SHOW_PAYMENT_SERVICES_NAMES"] != "N"):?>
-								<strong><?=$arPaySystem["PSA_NAME"];?></strong>
-							<?endif;?>
-						</div>
-					</label>
-					<div class="clear"></div>
-				</li>
-			<?
-			}
-		}
-		//Description
-		?>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_10"
+                       name="PAY_SYSTEM_ID"
+                       value="10"
+                       checked="checked"/>
+                <label for="ID_PAY_SYSTEM_ID_10" onclick="BX('ID_PAY_SYSTEM_ID_10').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/119/119cbf6c3934ee33e55b3052746a771b.png);'></span>
+                        <strong>Оплата банковской картой</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_13"
+                       name="PAY_SYSTEM_ID"
+                       value="13"
+                    />
+                <label for="ID_PAY_SYSTEM_ID_13" onclick="BX('ID_PAY_SYSTEM_ID_13').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/e41/e411e59821e3f85b940374bab1b5da77.gif);'></span>
+                        <strong>Оплата через Яндекс</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_14"
+                       name="PAY_SYSTEM_ID"
+                       value="14"
+                    />
+                <label for="ID_PAY_SYSTEM_ID_14" onclick="BX('ID_PAY_SYSTEM_ID_14').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/b4e/b4ec673e022d2d4d3982ff6eb2d41411.gif);'></span>
+                        <strong>Оплата через WebMoney</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_16"
+                       name="PAY_SYSTEM_ID"
+                       value="16"
+                    />
+                <label for="ID_PAY_SYSTEM_ID_16" onclick="BX('ID_PAY_SYSTEM_ID_16').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/ab8/ab83d15a93683fb3ede625ad747beb3c.png);'></span>
+                        <strong>Оплата через QIWI</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_1"
+                       name="PAY_SYSTEM_ID"
+                       value="1"
+                    />
+                <label for="ID_PAY_SYSTEM_ID_1" onclick="BX('ID_PAY_SYSTEM_ID_1').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/830/83074a651fd75dd06df08a5ced83bab0.png);'></span>
+                        <strong>Наличные курьеру</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
+            <li class="bx_element selectPaymentWay">
+                <input type="radio"
+                       id="ID_PAY_SYSTEM_ID_8"
+                       name="PAY_SYSTEM_ID"
+                       value="8"
+                    />
+                <label for="ID_PAY_SYSTEM_ID_8" onclick="BX('ID_PAY_SYSTEM_ID_8').checked=true;">
+                    <div class="bx_logotype">
+                        <span style='background-image:url(/upload/sale/paysystem/logotip/1a1/1a10ceb0bf2bc479b76a8a1a289ae504.gif);'></span>
+                        <strong>Наличными в кассу</strong>
+                    </div>
+                </label>
+                <div class="clear"></div>
+            </li>
 		</ul>
 		<div class="paymentWay">
-		<?
-		foreach($arResult["PAY_SYSTEM"] as $arPaySystem)
-		{
-			if (count($arResult["PAY_SYSTEM"]) == 1)
-			{
-				?>
-						<div class="bx_description <?if (
-															$arPaySystem["CHECKED"]=="N" && 
-															($arParams["ONLY_FULL_PAY_FROM_ACCOUNT"] == "Y" && $arResult["USER_VALS"]["PAY_CURRENT_ACCOUNT"]=="Y")
-														) echo "hidden";?>">
-							<p>
-								<?
-								if (intval($arPaySystem["PRICE"]) > 0)
-									echo str_replace("#PAYSYSTEM_PRICE#", SaleFormatCurrency(roundEx($arPaySystem["PRICE"], SALE_VALUE_PRECISION), $arResult["BASE_LANG_CURRENCY"]), GetMessage("SOA_TEMPL_PAYSYSTEM_PRICE"));
-								else
-									echo $arPaySystem["DESCRIPTION"];
-								?>
-							</p>
-						</div>
-				<?
-			}
-			else // more than one
-			{
-			?>
 
-						<div class="bx_description <?if ($arPaySystem["CHECKED"]=="Y" && !($arParams["ONLY_FULL_PAY_FROM_ACCOUNT"] == "Y" && $arResult["USER_VALS"]["PAY_CURRENT_ACCOUNT"]=="Y")) echo ""; else echo "hidden";?>">
-							<p>
-								<?
-								if (intval($arPaySystem["PRICE"]) > 0)
-									echo str_replace("#PAYSYSTEM_PRICE#", SaleFormatCurrency(roundEx($arPaySystem["PRICE"], SALE_VALUE_PRECISION), $arResult["BASE_LANG_CURRENCY"]), GetMessage("SOA_TEMPL_PAYSYSTEM_PRICE"));
-								else
-									echo $arPaySystem["DESCRIPTION"];
-								?>
-							</p>
-						</div>
-			<?
-			}
-		}
-		?>
 		</div>
 		<div style="clear: both;"></div>
 	</div>

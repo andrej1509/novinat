@@ -24,6 +24,7 @@ if ($normalCount > 0):
 						if ($arHeader["name"] == '')
 							$arHeader["name"] = GetMessage("SALE_".$arHeader["id"]);
 						$arHeaders[] = $arHeader["id"];
+
 						// remember which values should be shown not in the separate columns, but inside other columns
 						if (in_array($arHeader["id"], array("TYPE")))
 						{
@@ -291,7 +292,7 @@ if ($normalCount > 0):
 														type="text"
 														size="3"
 														id="QUANTITY_INPUT_<?=$arItem["ID"]?>"
-														name="QUANTITY_INPUT_<?=$arItem["ID"]?>"
+							  							name="QUANTITY_INPUT_<?=$arItem["ID"]?>"
 														size="2"
 														maxlength="18"
 														min="0"
@@ -351,13 +352,6 @@ if ($normalCount > 0):
 									<?endif;?>
 								</td>
 							<?
-//							elseif ($arHeader["id"] == "DISCOUNT"):
-//							?>
-<!--								<td class="custom">-->
-<!--									<span>--><?//=$arHeader["name"]; ?><!--:</span>-->
-<!--									<div id="discount_value_--><?//=$arItem["ID"]?><!--">--><?//=$arItem["DISCOUNT_PRICE_PERCENT_FORMATED"]?><!--</div>-->
-<!--								</td>-->
-<!--							--><?//
 							elseif ($arHeader["id"] == "WEIGHT"):
 							?>
 								<td class="custom">
@@ -513,6 +507,7 @@ if ($normalCount > 0):
 			<a href="javascript:void(0)" onclick="checkOut();" class="checkout"><?=GetMessage("SALE_ORDER")?></a>
 		</div>
 	</div>
+
 </div>
 <?
 else:

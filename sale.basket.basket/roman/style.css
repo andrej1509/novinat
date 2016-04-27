@@ -103,7 +103,6 @@
 	font-size:14px;
 	line-height:39px;
 }
-
 .bx_ordercart .bx_ordercart_order_table_container table tbody td{
 	padding:2% 5px;
 	border-bottom:1px solid #e5e5e5;
@@ -578,7 +577,29 @@ table.counter tbody tr td#quantity_control
     border-radius: 0 0 5px 5px;
     margin-top: -1px;
 }
+/*Лопатин*/
 
+.delivery_start{
+    position: absolute;
+    width: 22%;
+    left: 36%;
+}
+.delivery_start p{
+    margin-bottom: 9%;
+}
+.delivery_start p{
+    margin-bottom: 8%;
+    font-weight: bold;
+}
+.delivery_start input:last-child[type=radio]{
+    margin-left: 7%;
+}
+
+.delivery_start input[type=radio]{
+    margin-right: 1%;
+    cursor: pointer;
+}
+/*Лопатин*/
 .flat {
 	display: inline;
 }

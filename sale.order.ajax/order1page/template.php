@@ -286,12 +286,31 @@ if (!function_exists("cmpBySort"))
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
 			// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
 			
+			?><?
+
+			if ($arResult['STEP'] == 0) {
+				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
+				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
+			}
+			elseif ($arResult['STEP'] == 1) {
+				// var_dump($arResult["ORDER_PROP"]["RELATED"]);die();
+				console.log("firstStep");
+				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
+				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery_new.php");
+                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem_new.php");
+				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
+			}
+			elseif ($arResult['STEP'] == 2) {
+                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/summary.php");
+                if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)
+                    echo $arResult["PREPAY_ADIT_FIELDS"];
+                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/comment.php");
+			}
+			
 			?>
 			<div class="itog_price">Итоговая стоимость заказа: <?=$arResult["ORDER_TOTAL_PRICE_FORMATED"]?></div>
-			<?
-
-			?><div class="step_counter"><?
-			for ($i = 1; $i <= 3; $i++) {
+			<div class="step_counter"><?
+			for ($i = 1; $i <= 2; $i++) {
 				
 				if ($arResult["STEP"] == $i) {
 					echo "<b class=\"step active\">".$i."</b>";
@@ -303,31 +322,8 @@ if (!function_exists("cmpBySort"))
 					echo "<b class=\"devider\"></b>";
 				}
 			}
-			?></div><?
+			?></div>
 
-			if ($arResult['STEP'] == 0) {
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
-			}
-			elseif ($arResult['STEP'] == 1) {
-				// var_dump($arResult["ORDER_PROP"]["RELATED"]);die();
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery_new.php");
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
-			}
-			elseif ($arResult['STEP'] == 2) {
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem_new.php");
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
-				
-			}elseif ($arResult['STEP'] == 3) {
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/summary.php");
-				if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)
-					echo $arResult["PREPAY_ADIT_FIELDS"];
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/comment.php");
-			}
-			
-			?>
-			
 			<div class="bx_ordercart_order_pay_center">
 				<?
 				if ($arResult['STEP'] != 1) {
@@ -394,6 +390,29 @@ if (!function_exists("cmpBySort"))
 		}
 	}
 	?>
+    <script type="text/javascript">
+        if( localStorage["_deliv"] === "moskow"){
+            $('ul li.selectDeliveryWay:nth-child(even)').css('display','none');
+            $('ul li.selectDeliveryWay:nth-child(odd)').css('display','inline-block');
+            $('li.selectPaymentWay:nth-child(6)').css('display','none');
+            console.log('moskow');
+        }else if( localStorage["_deliv"] === "russia"){
+            $('ul li.selectDeliveryWay:nth-child(even)').css('display','inline-block');
+            $('ul li.selectDeliveryWay:nth-child(odd)').css('display','none');
+            $('li.selectPaymentWay:nth-child(5)').css('display','none');
+            $('li.selectPaymentWay:nth-child(6)').css('display','none');
+            console.log('russia');
+        }
+        function changeForm(){
+            if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
+                $('li.selectPaymentWay:nth-child(5)').css('display','inline-block');
+                $('li.selectPaymentWay:nth-child(6)').css('display','none');
+            }else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
+                $('li.selectPaymentWay:nth-child(5)').css('display','none');
+                $('li.selectPaymentWay:nth-child(6)').css('display','inline-block');
+            }
+        }
+    </script>
 	</div>
 </div>
 
