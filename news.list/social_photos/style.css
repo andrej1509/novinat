@@ -1,0 +1,18 @@
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.soc-pic-item {
+  margin: 3px;
+}
+div.soc-pic-item img.preview_picture
+{
+/*  float:left;*/
+/*  margin:0 4px 6px 0;*/
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.news-date-time {
+	color:#486DAA;
+}

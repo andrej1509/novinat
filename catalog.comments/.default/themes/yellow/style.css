@@ -1,0 +1,18 @@
+/* item_detail_v2 */
+.bx_soc_comments_div.bx_important.bx_yellow .bx_bt_button {
+  background: #DD1B22;
+  color: #FFF;
+	text-shadow:none;
+	display:inline-block;
+	border-radius:3px;
+	text-align:center;
+	text-decoration:none;
+	font-size:14px;
+	cursor:pointer;
+}
+.bx_soc_comments_div.bx_important.bx_yellow .bx_bt_button:hover {
+  background: #f41e26;
+}
+.bx_soc_comments_div.bx_important.bx_yellow .bx_bt_button:active {
+  background: #f41e26;
+}

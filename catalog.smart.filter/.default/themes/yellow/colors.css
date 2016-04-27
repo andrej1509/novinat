@@ -1,0 +1,83 @@
+.bx_filter.bx_yellow .bx_filter_section{
+	border: 1px solid #ccc;
+}
+/*Track*/
+.bx_filter.bx_yellow .bx_ui_slider_track{
+	border:1px solid #b2af9a;
+	/*background: #cdc9a6;*/
+	background: #cdcdcd;
+	/*background-image: -webkit-linear-gradient(#c7be83 0%, #ddd391 100%);
+	background-image: -o-linear-gradient(#c7be83 0%, #ddd391 100%);
+	background-image: linear-gradient(#c7be83 0%, #ddd391 100%);*/
+	box-shadow:0 1px 0 0 rgba(255,255,255,.35);
+}
+.bx_filter.bx_yellow .bx_ui_slider_part{
+	background:#c2bc92;
+}
+
+.bx_filter.bx_yellow .bx_ui_slider_part.p2 span,
+.bx_filter.bx_yellow .bx_ui_slider_part.p3 span,
+.bx_filter.bx_yellow .bx_ui_slider_part.p4 span{color:#989372;}
+
+.bx_filter.bx_yellow .bx_ui_slider_pricebar_VD{
+	border-top:   1px solid #918f7d;
+	border-bottom:1px solid #918f7d;
+	background:#a1a1a1;
+	/*	background-image: -webkit-linear-gradient(#a39c6b 0%, #b5ad77 100%);
+		background-image: -o-linear-gradient(#a39c6b 0%, #b5ad77 100%);
+		background-image: linear-gradient(#a39c6b 0%, #b5ad77 100%);*/
+
+}
+.bx_filter.bx_yellow .bx_ui_slider_pricebar_VN{
+	border:1px solid #a3a091;
+	background-image: -webkit-linear-gradient(#d7c651 0%, #f5e15f 100%);
+	background-image: -o-linear-gradient(#d7c651 0%, #f5e15f 100%);
+	background-image: linear-gradient(#d7c651 0%, #f5e15f 100%);
+}
+.bx_filter.bx_yellow .bx_ui_slider_pricebar_V{
+	/*border-right:1px solid #ce6c20;*/
+	/*border-left: 1px solid #ce6c20;*/
+	/*border: none !important;*/
+  background: #DD1B22;
+/*  background:
+    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAANQTFRFzmwgzm2C8wAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CIIA=') repeat-y left,
+    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAANQTFRFzmwgzm2C8wAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CIIA=') repeat-y right,
+    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAJCAIAAACAMfp5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUI0RUEwOTg3MThCMTFFNDgzRUM5OEQ4MzA4MDRDNTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUI0RUEwOTk3MThCMTFFNDgzRUM5OEQ4MzA4MDRDNTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QjRFQTA5NjcxOEIxMUU0ODNFQzk4RDgzMDgwNEM1MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QjRFQTA5NzcxOEIxMUU0ODNFQzk4RDgzMDgwNEM1MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pryk6q4AAACeSURBVHjaPI9rDoIwEIS/YjU8Griol/Mm/jLxDEIIgQr0aUvU/TW7OzM7K+7XBogg+JXIveifX2wsl/PBENgdOTxwgW2lqjmJvFg0SiG9462pK6LFHdOmJiE5jagKAomx7qiG4DEeWSbfgN2YF7oOs+WTyaNIqujIupJgssk80ZTI4Bgn2ja7pWBa07V4i+xvRQo4/J+I8SXySx8BBgBbCEvE8cBpVAAAAABJRU5ErkJggg==') repeat-x;*/
+}
+
+/**/
+.bx_filter .bx_filter_param_btn:hover{border-color:#d2a200}
+.bx_filter .bx_filter_param_btn:active,
+.bx_filter .bx_filter_param_label.active .bx_filter_param_btn{
+	box-shadow:0 0 0 3px #d2a200,inset 0 2px 3px rgba(0,0,0,.12);
+}
+
+/*
+* TAGS
+*
+*/
+.bx_filter.bx_yellow .bx_filter_tag{
+	border: 1px solid #CCC878;
+	background: none repeat scroll 0% 0% #F6EFBD;
+}
+.bx_filter.bx_yellow .bx_tag_link{
+	color:#66AA59;
+}
+.bx_filter.bx_yellow .bx_tag_link.active,
+.bx_filter.bx_yellow .bx_tag_link:hover{
+	color:#2F783D;
+}
+/**/
+.bx_filter.bx_yellow .bx_filter_control_section{text-align: center}
+.bx_filter.bx_yellow .bx_filter_search_button{
+	height: 33px;
+	color: #FFF;
+	background: #DD1B22;
+	line-height:33px;
+}
+.bx_filter.bx_yellow .bx_filter_search_button:hover{
+  background:#f41e26
+}
+.bx_filter.bx_yellow .bx_filter_search_button:active{
+	background: #e71c23;
+}
