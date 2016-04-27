@@ -934,13 +934,16 @@ window.JCCatalogSection.prototype.UpdateRow = function(intNumber, activeID, show
 					obData.props.className = (isCurrent ? 'bx_active bx_missing' : 'bx_missing');
 				}
 				obData.style.display = 'none';
+
 				if (BX.util.in_array(value, showID))
 				{
+					console.log(obData);
 					if(obData.props.className == "bx_missing"){
 						obData.style.display = 'none';
 					}else{
 						obData.style.display = '';
 					}
+
 					if (isCurrent)
 					{
 						selectIndex = showI;

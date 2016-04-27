@@ -561,12 +561,12 @@
 .bx_catalog_list_home .bx_item_detail_size .bx_size ul li.bx_missing>i{
 	cursor: not-allowed;
 	position: absolute;
-	display: block;
 	top: 0;
 	right: 2px;
 	bottom: 2px;
 	left:2px;
 	z-index:11;
+	display: none;
 	background: rgba(255,255,255,.79) url(images/missing.png) no-repeat center;
 }
 /*----*/

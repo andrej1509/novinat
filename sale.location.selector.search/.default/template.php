@@ -22,7 +22,17 @@ Loc::loadMessages(__FILE__);
 
 	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-sls <?if(strlen($arResult['MODE_CLASSES'])):?> <?=$arResult['MODE_CLASSES']?><?endif?>">
 
-		
+		<?if(is_array($arResult['DEFAULT_LOCATIONS']) && !empty($arResult['DEFAULT_LOCATIONS'])):?>
+
+			<div class="bx-ui-sls-quick-locations quick-locations">
+
+				<?foreach($arResult['DEFAULT_LOCATIONS'] as $lid => $loc):?>
+					<a href="javascript:void(0)" data-id="<?=intval($loc['ID'])?>" class="quick-location-tag"><?=htmlspecialcharsbx($loc['NAME'])?></a>
+				<?endforeach?>
+
+			</div>
+
+		<?endif?>
 
 		<div class="dropdown-block bx-ui-sls-input-block">
 
@@ -78,7 +88,7 @@ Loc::loadMessages(__FILE__);
 
 			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
-				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] =
+				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
 			<?endif?>
 
 			new BX.Sale.component.location.selector.search(<?=CUtil::PhpToJSObject(array(

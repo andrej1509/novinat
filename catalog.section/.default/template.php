@@ -144,8 +144,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 	if ($arItem['MIN_PRICE']['PRINT_DISCOUNT_VALUE']== null){
 		continue;
 	};
-
-if ($arItem['PREVIEW_PICTURE']['SRC']=="/local/templates/eshop_adapt_yellow/components/bitrix/catalog.section/.default/images/no_photo.png"){
+	if ($arItem['PREVIEW_PICTURE']['SRC']=="/local/templates/eshop_adapt_yellow/components/bitrix/catalog.section/.default/images/no_photo.png"){
 		continue;
 	};
 
