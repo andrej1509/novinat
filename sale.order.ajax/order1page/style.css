@@ -137,6 +137,11 @@ div.bx_section li.bx_element input[type=checkbox],
 	display: none;
 }
 
+div.bx_section .delivery-method li.bx_element input[type=radio]{
+    display: inline-block;
+    margin-left: 40%;
+}
+
 .bx_element .bx_logotype {
   position: relative;
   box-sizing: content-box;
@@ -153,22 +158,6 @@ div.bx_section li.bx_element input[type=checkbox],
 
 .bx_element input[type=radio]:checked + label{
   border-right: 2px solid #fff;
-}
-
-.bx_element input[type=radio]:checked + label .bx_logotype:before,
-.bx_element label.selected .bx_logotype:before,
-.bx_element input[type=radio]:checked + label .bx_logotype:after,
-.bx_element label.selected .bx_logotype .logotype_border:after
-{
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #DD1B22;
-  border-radius: 10px;
-  right: 0;
-  background: #fff;
-  box-sizing: content-box;
 }
 
 .bx_element input[type=radio]:checked + label .bx_logotype:before
@@ -392,8 +381,11 @@ div.bx_section li.bx_element input[type=checkbox],
 	padding:0;
 	vertical-align: middle;
 }
+.bx_order_make .wrap_block{display: inline-block; width: 26%;}
+.bx_order_make .wrap_block1{display: inline-block; width: 7%; margin-left: 1%}
 .bx_order_make .bx_block.r1x3.pt8{padding-top:8px}
 .bx_order_make .bx_block.r1x3{margin:0; 		  width:20% }
+.bx_order_make .bx_block.r1x4{margin:0; 		  width:100%}
 .bx_order_make .bx_block.r3x1{margin:0; 		  width:80% }
 .bx_order_make .bx_block.w100{
   margin:0px 0 10px 0;
@@ -406,6 +398,7 @@ div.bx_section li.bx_element input[type=checkbox],
 }
 @media (max-width:480px){
 	.bx-touch .bx_order_make .bx_block.r1x3,
+    .bx_order_make .bx_block.r1x2,
 	.bx-touch .bx_order_make .bx_block.r3x1{float:none;margin-right:0;width:100%;}
 }
 .bx_order_make .bx_block input[type="text"],
@@ -433,9 +426,8 @@ div.bx_section li.bx_element input[type=checkbox],
 
 .bx_order_make .bx_logotype{
   cursor: pointer;
-  padding: 0 6px;
+  padding: 4px 9px;
   float: left;
-  border: 2px solid transparent;
   text-align: center;
 }
 .bx_order_make .bx_block.horizontal .bx_logotype{margin-right: 0}
@@ -503,7 +495,7 @@ div#order_form_content .errortext {
 	border-left: 1px solid #D5BABE;
 	border-radius: 5px;
 	background: #F8EAED;
-	background: url("images/alert.png") 10px 50% no-repeat, url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: url("images/alert.png") 10px 50% no-repeat, url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodï¿½EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: url("images/alert.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F8EAED), color-stop(100%,#EDD0D6));
 	background: url("images/alert.png") 10px 50% no-repeat, -webkit-linear-gradient(top, #F8EAED 0%,#EDD0D6 100%);
 	background: url("images/alert.png") 10px 50% no-repeat, -moz-linear-gradient(top, #f8eaed 0%,#edd0d6 100%);
@@ -531,22 +523,9 @@ div#order_form_content .errortext {
 {
   width: 114px;
   position: relative;
-}
-.delivery .deliveryWay,
-.paysystem .paymentWay
- {
-  width: 562px;
-  min-height: 460px;
-  margin-left: 112px;
-  border: 2px solid #DD1B22;
-  border-radius: 5px;
-  padding: 0 30px 20px;
-  box-shadow: 0 3px 2px -3px rgba(0, 0, 0, .6);
+  display: inline-block;
 }
 
-.paysystem .paymentWay {
-  min-height: 570px;
-}
 
 .order_sidebar {
   float: left;

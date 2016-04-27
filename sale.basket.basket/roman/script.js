@@ -51,7 +51,7 @@ function updateBasketTable(basketItemId, res)
 		oCellWeight,
 		oCellCustom,
 		customColumnVal;
-
+    console.log("delete");
 	if (!table || typeof res !== 'object')
 	{
 		return;
@@ -86,7 +86,9 @@ function updateBasketTable(basketItemId, res)
 		for (i = 0; i < arColumns.length; i++)
 		{
 			if (arColumns[i] === 'DELETE')
+
 			{
+                console.log("delete");
 				bShowDeleteColumn = true;
 			}
 			else if (arColumns[i] === 'DELAY')
@@ -105,6 +107,7 @@ function updateBasketTable(basketItemId, res)
 
 		for (i = 0; i < arColumns.length; i++)
 		{
+            console.log("delete");
 			switch (arColumns[i])
 			{
 				case 'PROPS':
@@ -382,6 +385,7 @@ function updateBasketTable(basketItemId, res)
 					if (isUpdateQuantity)
 					{
 						updateQuantity('QUANTITY_INPUT_' + arItem['ID'], arItem['ID'], ratio, bUseFloatQuantity);
+						console.log("updateQuantity")
 					}
 					break;
 				case 'PRICE':
@@ -754,7 +758,7 @@ function skuPropClickHandler(e)
 			'hide_coupon': BX('hide_coupon').value,
 			'use_prepayment': BX('use_prepayment').value
 		};
-
+        console.log("ajax.php");
 		postData[action_var] = 'select_item';
 
 		BX.ajax({

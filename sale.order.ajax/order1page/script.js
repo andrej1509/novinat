@@ -12,9 +12,9 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 	// called once, on component load
 	init: function(options)
 	{
+        console.log("Заметка1");
 		var ctx = this;
 		this.options = options;
-
 		window.submitFormProxy = BX.proxy(function(){
 			ctx.submitFormProxy.apply(ctx, arguments);
 		}, this);
@@ -47,7 +47,6 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 	},
 
 	cleanUp: function(){
-		console.log("dfjh");
 		for(var k in this.properties)
 		{
 			if (this.properties.hasOwnProperty(k))
@@ -237,12 +236,6 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 	},
 
 	checkMode: function(propId, mode){
-
-		//if(typeof this.modes[propId] == 'undefined')
-		//	this.modes[propId] = {};
-
-		//if(typeof this.modes[propId] != 'undefined' && this.modes[propId][mode])
-		//	return true;
 
 		if(mode == 'altLocationChoosen'){
 
