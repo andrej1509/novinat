@@ -418,7 +418,7 @@ if (!function_exists("PrintPropsForm"))
                         <span class="bx_sof_req">*</span>
                     </div>
                     <div class="bx_block r3x1">
-                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_5" id="ORDER_PROP_5">
+                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_7" id="ORDER_PROP_7">
                     </div>
                     <div class="wrap_block">
                     <div class="bx_block r1x4 pt8">
@@ -426,7 +426,7 @@ if (!function_exists("PrintPropsForm"))
                         <span class="bx_sof_req">*</span>
                     </div>
                     <div class="bx_block r1x4">
-                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_6" id="ORDER_PROP_6">
+                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_8" id="ORDER_PROP_8">
                     </div>
                     </div>
             <div class="wrap_block1">
@@ -435,7 +435,7 @@ if (!function_exists("PrintPropsForm"))
                         <span class="bx_sof_req">*</span>
                     </div>
                     <div class="bx_block r1x4">
-                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_7" id="ORDER_PROP_7">
+                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_9" id="ORDER_PROP_9">
                     </div>
             </div>
                     <div class="wrap_block1">
@@ -444,7 +444,7 @@ if (!function_exists("PrintPropsForm"))
                             <span class="bx_sof_req">*</span>
                         </div>
                         <div class="bx_block r1x4">
-                            <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_8" id="ORDER_PROP_8">
+                            <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_10" id="ORDER_PROP_10">
                         </div>
                     </div>
 				</div>

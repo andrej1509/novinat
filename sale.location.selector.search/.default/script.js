@@ -37,7 +37,7 @@ if(typeof BX.Sale.component.location.selector.search == 'undefined' && typeof BX
 
                         this.ctrls.inputs.fake.setAttribute('title', path);
                         this.ctrls.fullRoute.value = path;
-
+                        
                         if (typeof this.opts.callback == 'string' && this.opts.callback.length > 0 && this.opts.callback in window)
                             window[this.opts.callback].apply(this, [itemId, this]);
                     },

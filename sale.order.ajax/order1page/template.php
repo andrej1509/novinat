@@ -197,7 +197,7 @@ if (!function_exists("cmpBySort"))
 				BX("step_number").value = parseInt(BX("step_number").value)+1;
 				submitForm();
 			}
-			
+
 			</script>
 	<script type="text/javascript">
 		function changePaySystem(param)
@@ -280,12 +280,12 @@ if (!function_exists("cmpBySort"))
 				</script>
 				<?
 			}
-			
+
 			$iStep = $arResult['STEP'];
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
 			// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
-			
+
 			?><?
 
 			if ($arResult['STEP'] == 0) {
@@ -306,12 +306,12 @@ if (!function_exists("cmpBySort"))
                     echo $arResult["PREPAY_ADIT_FIELDS"];
                 include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/comment.php");
 			}
-			
+
 			?>
 			<div class="itog_price">Итоговая стоимость заказа: <?=$arResult["ORDER_TOTAL_PRICE_FORMATED"]?></div>
 			<div class="step_counter"><?
 			for ($i = 1; $i <= 2; $i++) {
-				
+
 				if ($arResult["STEP"] == $i) {
 					echo "<b class=\"step active\">".$i."</b>";
 				}
@@ -356,7 +356,7 @@ if (!function_exists("cmpBySort"))
 			<?if ($arResult["STEP"] == 3):?>
 				<input type="hidden" name="PAY_SYSTEM_ID" value="<?= $arResult["USER_VALS"]["PAY_SYSTEM_ID"] ?>">
 			<?endif?>
-			
+
 			<?if($_POST["is_ajax_post"] != "Y")
 			{
 				?>
@@ -366,7 +366,7 @@ if (!function_exists("cmpBySort"))
 					<input type="hidden" name="profile_change" id="profile_change" value="N">
 					<input type="hidden" name="is_ajax_post" id="is_ajax_post" value="Y">
 					<input type="hidden" name="json" value="Y">
-					
+
 				</form>
 				<?
 				if($arParams["DELIVERY_NO_AJAX"] == "N")
@@ -415,25 +415,3 @@ if (!function_exists("cmpBySort"))
     </script>
 	</div>
 </div>
-
-<?if(CSaleLocation::isLocationProEnabled()):?>
-
-	<div style="display: none">
-		<?// we need to have all styles for sale.location.selector.steps, but RestartBuffer() cuts off document head with styles in it?>
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.steps", 
-			".default", 
-			array(
-			),
-			false
-		);?>
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.search", 
-			".default", 
-			array(
-			),
-			false
-		);?>
-	</div>
-
-<?endif?>
