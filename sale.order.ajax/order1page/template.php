@@ -177,7 +177,27 @@ if (!function_exists("cmpBySort"))
 						BX.saleOrderAjax.initDeferredControl();
 					<?endif?>
 				}
-
+				if( localStorage["_deliv"] === "moskow"){
+					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
+					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
+					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+					console.log('moskow');
+				}else if( localStorage["_deliv"] === "russia"){
+					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
+					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
+					$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
+					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+					console.log('russia');
+				}
+				function changeForm(){
+					if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
+						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
+						$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+					}else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
+						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
+						$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", false);
+					}
+				}
 				BX.closeWait();
 				BX.onCustomEvent(orderForm, 'onAjaxSuccess');
 			}
@@ -309,20 +329,6 @@ if (!function_exists("cmpBySort"))
 
 			?>
 			<div class="itog_price">Итоговая стоимость заказа: <?=$arResult["ORDER_TOTAL_PRICE_FORMATED"]?></div>
-			<div class="step_counter"><?
-			for ($i = 1; $i <= 2; $i++) {
-
-				if ($arResult["STEP"] == $i) {
-					echo "<b class=\"step active\">".$i."</b>";
-				}
-				else {
-					echo "<b class=\"step\">".$i."</b>";
-				}
-				if ($i<3) {
-					echo "<b class=\"devider\"></b>";
-				}
-			}
-			?></div>
 
 			<div class="bx_ordercart_order_pay_center">
 				<?
@@ -391,27 +397,30 @@ if (!function_exists("cmpBySort"))
 	}
 	?>
     <script type="text/javascript">
-        if( localStorage["_deliv"] === "moskow"){
-            $('ul li.selectDeliveryWay:nth-child(even)').css('display','none');
-            $('ul li.selectDeliveryWay:nth-child(odd)').css('display','inline-block');
-            $('li.selectPaymentWay:nth-child(6)').css('display','none');
-            console.log('moskow');
-        }else if( localStorage["_deliv"] === "russia"){
-            $('ul li.selectDeliveryWay:nth-child(even)').css('display','inline-block');
-            $('ul li.selectDeliveryWay:nth-child(odd)').css('display','none');
-            $('li.selectPaymentWay:nth-child(5)').css('display','none');
-            $('li.selectPaymentWay:nth-child(6)').css('display','none');
-            console.log('russia');
-        }
-        function changeForm(){
-            if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
-                $('li.selectPaymentWay:nth-child(5)').css('display','inline-block');
-                $('li.selectPaymentWay:nth-child(6)').css('display','none');
-            }else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
-                $('li.selectPaymentWay:nth-child(5)').css('display','none');
-                $('li.selectPaymentWay:nth-child(6)').css('display','inline-block');
-            }
-        }
+		if( localStorage["_deliv"] === "moskow"){
+			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
+			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
+			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+			console.log('moskow');
+		}else if( localStorage["_deliv"] === "russia"){
+			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
+			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
+			$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
+			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+			console.log('russia');
+		}else{
+			$('ul li.selectDeliveryWay input').prop( "disabled", true);
+			$('ul li.selectPaymentWay input').prop( "disabled", true);
+		}
+		function changeForm(){
+			if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
+				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
+				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+			}else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
+				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
+				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", false);
+			}
+		}
     </script>
 	</div>
 </div>

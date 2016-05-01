@@ -134,9 +134,7 @@
                     id="ID_DELIVERY_simple_simple"
                     name="DELIVERY_ID"
                     value="simple:simple"
-                    checked="checked"
-                    onclick="BX('ID_DELIVERY_simple_simple').checked=true;changeForm();"
-                    />
+                   onclick="changeForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -154,7 +152,6 @@
                     id="ID_DELIVERY_ems_delivery"
                     name="DELIVERY_ID"
                     value="ems:delivery"
-                    onclick="BX('ID_DELIVERY_ems_delivery').checked=true"
                     />
                 <div class="bx_logotype">
                     <div class="logotype_border">
@@ -191,7 +188,6 @@
                     id="ID_DELIVERY_sdek_courier"
                     name="DELIVERY_ID"
                     value="sdek:courier"
-                    BX('ID_DELIVERY_sdek_courier').checked=true"
                     />
                 <div class="bx_logotype">
                     <div class="logotype_border">

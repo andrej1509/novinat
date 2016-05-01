@@ -65,6 +65,9 @@
 	color: #000;
 	font-size: 13px;
 }
+#order_form_div .selectPaymentWay label {
+	height: 142px;
+}
 #order_form_div .sale_order_table {
 	font-size: 12px;
 	border-collapse: collapse;
@@ -134,7 +137,8 @@ div.bx_section li.bx_element input[type=radio],
 div.bx_section li.bx_element input[type=checkbox],
 #order_form_div .sale_order_table .ps_logo input[type=radio],
 #order_form_div .account input[type=checkbox] {
-	display: none;
+	display: block;
+	margin: 0 47%;
 }
 
 div.bx_section .delivery-method li.bx_element input[type=radio]{

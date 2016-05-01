@@ -3,7 +3,6 @@ BX.namespace('BX.Sale.component.location.selector');
 if(typeof BX.Sale.component.location.selector.search == 'undefined' && typeof BX.ui != 'undefined' && typeof BX.ui.widget != 'undefined'){
 
 	BX.Sale.component.location.selector.search = function(opts, nf){
-        console.log("Лопатин");
 		this.parentConstruct(BX.Sale.component.location.selector.search, opts);
 
 		BX.merge(this, {
@@ -35,9 +34,17 @@ if(typeof BX.Sale.component.location.selector.search == 'undefined' && typeof BX
                             }
                         }
 
+						if (cItem.CODE == "0000028025" ||
+							(cItem.PATH.length==4 && cItem.PATH[1] == 3)||
+							(cItem.PATH.length==3 && cItem.PATH[0] == 3))
+						{
+							localStorage["_deliv"]= 'moskow';
+						}else
+							localStorage["_deliv"]= 'russia';
+						console.log(cItem.PATH[0]);
                         this.ctrls.inputs.fake.setAttribute('title', path);
                         this.ctrls.fullRoute.value = path;
-                        
+
                         if (typeof this.opts.callback == 'string' && this.opts.callback.length > 0 && this.opts.callback in window)
                             window[this.opts.callback].apply(this, [itemId, this]);
                     },
