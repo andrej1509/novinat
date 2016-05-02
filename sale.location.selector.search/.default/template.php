@@ -19,7 +19,9 @@ Loc::loadMessages(__FILE__);
 	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
 	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
 	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_autocomplete.js');?>
-
+	<div id="hidecity" style="display: none">
+		<?echo ($arResult["PATH"][3]["ID"]==3) ? 'moskow': 'russia'?>
+	</div>
 	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-sls <?if(strlen($arResult['MODE_CLASSES'])):?> <?=$arResult['MODE_CLASSES']?><?endif?>">
 
 		
@@ -80,7 +82,6 @@ Loc::loadMessages(__FILE__);
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
 				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] =
 			<?endif?>
-
 			new BX.Sale.component.location.selector.search(<?=CUtil::PhpToJSObject(array(
 
 				// common

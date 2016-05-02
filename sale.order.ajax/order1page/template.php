@@ -177,26 +177,24 @@ if (!function_exists("cmpBySort"))
 						BX.saleOrderAjax.initDeferredControl();
 					<?endif?>
 				}
-				if( localStorage["_deliv"] === "moskow"){
+				if( $("#hidecity").text().trim() === "moskow"){
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
+					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#c7c7c7');
+					$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
+					$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 					console.log('moskow');
-				}else if( localStorage["_deliv"] === "russia"){
+				}else if($("#hidecity").text().trim() === "russia"){
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
+					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
+					$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#c7c7c7');
+					$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
+					$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 					$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 					console.log('russia');
-				}
-				function changeForm(){
-					if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
-						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
-						$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
-					}else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
-						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
-						$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", false);
-					}
 				}
 				BX.closeWait();
 				BX.onCustomEvent(orderForm, 'onAjaxSuccess');
@@ -304,28 +302,13 @@ if (!function_exists("cmpBySort"))
 			$iStep = $arResult['STEP'];
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
-			// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
+			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
+			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery_new.php");
+            include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem_new.php");
+			if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)
+					echo $arResult["PREPAY_ADIT_FIELDS"];
+			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/comment.php");
 
-			?><?
-
-			if ($arResult['STEP'] == 0) {
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
-			}
-			elseif ($arResult['STEP'] == 1) {
-				// var_dump($arResult["ORDER_PROP"]["RELATED"]);die();
-				console.log("firstStep");
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props_format.php");
-				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery_new.php");
-                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem_new.php");
-				// include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/related_props.php");
-			}
-			elseif ($arResult['STEP'] == 2) {
-                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/summary.php");
-                if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)
-                    echo $arResult["PREPAY_ADIT_FIELDS"];
-                include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/comment.php");
-			}
 
 			?>
 			<div class="itog_price">Итоговая стоимость заказа: <?=$arResult["ORDER_TOTAL_PRICE_FORMATED"]?></div>
@@ -335,11 +318,6 @@ if (!function_exists("cmpBySort"))
 				if ($arResult['STEP'] != 1) {
 					?>
 					<a href="javascript:void();" onclick="StepBack(); return false;" id="" class="checkout"><?=GetMessage("ROM_PREV_STEP")?></a>
-					<?
-				}
-				if ($arResult['STEP'] != 3) {
-					?>
-					<a href="javascript:void();" onclick="StepFwd(); return false;" id="" class="checkout"><?=GetMessage("ROM_NEXT_STEP")?></a>
 					<?
 				} else {
 					?>
@@ -397,28 +375,37 @@ if (!function_exists("cmpBySort"))
 	}
 	?>
     <script type="text/javascript">
-		if( localStorage["_deliv"] === "moskow"){
+		if( $("#hidecity").text().trim() === "moskow"){
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
+			$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#c7c7c7');
+			$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
 			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 			console.log('moskow');
-		}else if( localStorage["_deliv"] === "russia"){
+		}else if($("#hidecity").text().trim() === "russia"){
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
+			$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
+			$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#c7c7c7');
+			$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
+			$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 			$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 			console.log('russia');
-		}else{
-			$('ul li.selectDeliveryWay input').prop( "disabled", true);
-			$('ul li.selectPaymentWay input').prop( "disabled", true);
 		}
 		function changeForm(){
 			if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
 				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
+				$('li.selectPaymentWay:nth-child(6) input').prop('checked',false);
 				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+				$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#000');
+				$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 			}else if($('li.selectDeliveryWay:nth-child(3) input').prop('checked')){
 				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", false);
+				$('li.selectPaymentWay:nth-child(5) input').prop('checked',false);
+				$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
+				$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#000');
 			}
 		}
     </script>

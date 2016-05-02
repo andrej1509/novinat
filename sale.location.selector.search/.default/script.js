@@ -34,14 +34,14 @@ if(typeof BX.Sale.component.location.selector.search == 'undefined' && typeof BX
                             }
                         }
 
-						if (cItem.CODE == "0000028025" ||
-							(cItem.PATH.length==4 && cItem.PATH[1] == 3)||
-							(cItem.PATH.length==3 && cItem.PATH[0] == 3))
-						{
-							localStorage["_deliv"]= 'moskow';
-						}else
-							localStorage["_deliv"]= 'russia';
-						console.log(cItem.PATH[0]);
+						// if (cItem.CODE == "0000028025" ||
+						// 	(cItem.PATH.length==4 && cItem.PATH[1] == 3)||
+						// 	(cItem.PATH.length==3 && cItem.PATH[0] == 3))
+						// {
+						// 	localStorage["_deliv"]= 'moskow';
+						// }else
+						// 	localStorage["_deliv"]= 'russia';
+						// console.log(cItem.PATH[0]);
                         this.ctrls.inputs.fake.setAttribute('title', path);
                         this.ctrls.fullRoute.value = path;
 
