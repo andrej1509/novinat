@@ -321,7 +321,7 @@ if (!function_exists("cmpBySort"))
 					<?
 				} else {
 					?>
-					<a href="javascript:void();" onclick="submitForm('Y'); return false;" id="ORDER_CONFIRM_BUTTON" class="checkout"><?=GetMessage("SOA_TEMPL_BUTTON")?></a>
+					<a href="javascript:void();" onclick="BX.saleOrderAjax.confirmForm();submitForm('Y'); return false;" id="ORDER_CONFIRM_BUTTON" class="checkout"><?=GetMessage("SOA_TEMPL_BUTTON")?></a>
 					<?
 				}
 				?>

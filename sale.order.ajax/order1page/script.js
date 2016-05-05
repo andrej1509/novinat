@@ -370,7 +370,9 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 
 		}
 	},
-
+	confirmForm: function(){
+		var inputArr = $('input#ORDER_PROP_1, input#ORDER_PROP_2, input#ORDER_PROP_3, input.bx-ui-sls-route, input#ORDER_PROP_4, input#ORDER_PROP_8, input#ORDER_PROP_9, input#ORDER_PROP_10');
+	},
 	getPreviousAdapterSelectedNode: function(control, adapter){
 
 		var index = adapter.getIndex();

@@ -418,7 +418,7 @@ if (!function_exists("PrintPropsForm"))
                         <span class="bx_sof_req">*</span>
                     </div>
                     <div class="bx_block r3x1">
-                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_7" id="ORDER_PROP_7">
+                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_4" id="ORDER_PROP_4">
                     </div>
                     <div class="wrap_block">
                     <div class="bx_block r1x4 pt8">
