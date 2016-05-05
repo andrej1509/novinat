@@ -127,6 +127,25 @@ if (!function_exists("cmpBySort"))
 			var BXFormPosting = false;
 			function submitForm(val)
 			{
+				if(val == 'Y'){
+					var error=false;
+					var inputArr = $('input#ORDER_PROP_1, input#ORDER_PROP_2, input#ORDER_PROP_3, input.bx-ui-sls-route, input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10');
+					for (var i = 0, len = inputArr.length; i < len; i++){
+						if (inputArr[i].value == ""){
+							inputArr[i].style.backgroundColor = '#f4bfbf';
+							inputArr[i].addEventListener('focus',onInputFocus, true);
+							error = true;
+						}
+					}
+					if(error){
+						return;
+					}else
+					{
+						var adress = "ул. " + $('input#ORDER_PROP_20').val()+ " ,дом " + $('input#ORDER_PROP_9').val()+ " ,кв/офис " + $('input#ORDER_PROP_10').val();
+						$('input#ORDER_PROP_7').val(adress);
+					}
+				}
+
 				if (BXFormPosting === true)
 					return true;
 
@@ -145,7 +164,9 @@ if (!function_exists("cmpBySort"))
 
 				return true;
 			}
-
+			function onInputFocus() {
+				this.style.backgroundColor = '#fff';
+			}
 			function ajaxResult(res)
 			{
 				var orderForm = BX('ORDER_FORM');
@@ -177,15 +198,17 @@ if (!function_exists("cmpBySort"))
 						BX.saleOrderAjax.initDeferredControl();
 					<?endif?>
 				}
+				$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 				if( $("#hidecity").text().trim() === "moskow"){
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
 					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#c7c7c7');
 					$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
-					$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
+					$('ul li.selectDeliveryWay:nth-child(1) input').prop('checked',true);
 					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 					console.log('moskow');
 				}else if($("#hidecity").text().trim() === "russia"){
+					$('ul li.selectDeliveryWay:nth-child(2) input').prop('checked',true);
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
 					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
@@ -321,7 +344,7 @@ if (!function_exists("cmpBySort"))
 					<?
 				} else {
 					?>
-					<a href="javascript:void();" onclick="BX.saleOrderAjax.confirmForm();submitForm('Y'); return false;" id="ORDER_CONFIRM_BUTTON" class="checkout"><?=GetMessage("SOA_TEMPL_BUTTON")?></a>
+					<a href="javascript:void();" onclick="submitForm('Y'); return false;" id="ORDER_CONFIRM_BUTTON" class="checkout"><?=GetMessage("SOA_TEMPL_BUTTON")?></a>
 					<?
 				}
 				?>
@@ -375,14 +398,17 @@ if (!function_exists("cmpBySort"))
 	}
 	?>
     <script type="text/javascript">
+		$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 		if( $("#hidecity").text().trim() === "moskow"){
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
 			$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#c7c7c7');
 			$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
+			$('ul li.selectDeliveryWay:nth-child(1) input').prop('checked',true);
 			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 			console.log('moskow');
 		}else if($("#hidecity").text().trim() === "russia"){
+			$('ul li.selectDeliveryWay:nth-child(2) input').prop('checked',true);
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
 			$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
@@ -397,6 +423,7 @@ if (!function_exists("cmpBySort"))
 			if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
 				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
 				$('li.selectPaymentWay:nth-child(6) input').prop('checked',false);
+				$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
 				$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#000');
 				$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
@@ -404,6 +431,7 @@ if (!function_exists("cmpBySort"))
 				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 				$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", false);
 				$('li.selectPaymentWay:nth-child(5) input').prop('checked',false);
+				$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 				$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
 				$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#000');
 			}

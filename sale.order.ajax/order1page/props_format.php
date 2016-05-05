@@ -425,8 +425,9 @@ if (!function_exists("PrintPropsForm"))
                         Улица
                         <span class="bx_sof_req">*</span>
                     </div>
+					<input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_7" id="ORDER_PROP_7">
                     <div class="bx_block r1x4">
-                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_8" id="ORDER_PROP_8">
+                        <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_20" id="ORDER_PROP_20">
                     </div>
                     </div>
             <div class="wrap_block1">
