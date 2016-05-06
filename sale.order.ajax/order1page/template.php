@@ -220,9 +220,9 @@ if (!function_exists("cmpBySort"))
 						$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
 					}
 					if ($('ul li.selectDeliveryWay:nth-child(3) input').is(":checked" )) {
-						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10').prop("disabled", "true");
+						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "none");
 					}else{
-						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10').prop("disabled", "false");
+						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "inline-block");
 					};
 					console.log('moskow');
 				}else if($("#hidecity").text().trim() === "russia"){

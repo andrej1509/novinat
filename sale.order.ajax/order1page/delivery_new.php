@@ -6,7 +6,6 @@
 	{
 		var strUrl = '<?=$templateFolder?>' + '/map.php';
 		var strUrlPost = 'delivery=' + id + '&showImages=' + showImages + '&siteId=' + siteId;
-        console.log('Pfvtnrf3');
 		var storeForm = new BX.CDialog({
 					'title': '<?=GetMessage('SOA_ORDER_GIVE')?>',
 					head: '',
@@ -33,7 +32,6 @@
 		storeForm.ClearButtons();
 		storeForm.SetButtons(button);
 		storeForm.Show();
-        console.log('Pfvtnrf3');
 	}
 
 	function GetBuyerStore()
@@ -137,8 +135,8 @@
 }else {
 	$PARAM_STR = "";
 }?>
-<div id="delive_hidden"><? echo $PARAM_DEL?></div>
-<div id="deliv_str_hidden"><? echo $PARAM_STR?></div>
+<div id="delive_hidden" style="display: none"><? echo $PARAM_DEL?></div>
+<div id="deliv_str_hidden" style="display: none"><? echo $PARAM_STR?></div>
 <div class="bx_section delivery">
     <h4>Выберите способ доставки</h4>
     <ul class="delivery-method">
