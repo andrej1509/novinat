@@ -413,15 +413,15 @@ if (!function_exists("PrintPropsForm"))
 						<?
 					}
 					?>
-                    <div class="bx_block r1x3 pt8">
+                    <div class="bx_block r1x3 pt8 hide_block">
                         Индекс
                         <span class="bx_sof_req">*</span>
                     </div>
                     <div class="bx_block r3x1">
                         <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_4" id="ORDER_PROP_4">
                     </div>
-                    <div class="wrap_block">
-                    <div class="bx_block r1x4 pt8">
+                    <div class="wrap_block hide_block">
+                    <div class="bx_block r1x4 pt8 hide_block">
                         Улица
                         <span class="bx_sof_req">*</span>
                     </div>
@@ -430,7 +430,7 @@ if (!function_exists("PrintPropsForm"))
                         <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_20" id="ORDER_PROP_20">
                     </div>
                     </div>
-            <div class="wrap_block1">
+            <div class="wrap_block1 hide_block">
                     <div class="bx_block r1x4 pt8">
                         Дом
                         <span class="bx_sof_req">*</span>
@@ -439,7 +439,7 @@ if (!function_exists("PrintPropsForm"))
                         <input type="text" maxlength="250" size="0" value="" name="ORDER_PROP_9" id="ORDER_PROP_9">
                     </div>
             </div>
-                    <div class="wrap_block1">
+                    <div class="wrap_block1 hide_block">
                         <div class="bx_block r1x4 pt8">
                             Кв/офис
                             <span class="bx_sof_req">*</span>

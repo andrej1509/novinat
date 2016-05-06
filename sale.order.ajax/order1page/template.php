@@ -129,14 +129,20 @@ if (!function_exists("cmpBySort"))
 			{
 				if(val == 'Y'){
 					var error=false;
-					var inputArr = $('input#ORDER_PROP_1, input#ORDER_PROP_2, input#ORDER_PROP_3, input.bx-ui-sls-route, input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10');
+					if ($('ul li.selectDeliveryWay:nth-child(3) input').is(":checked")){
+						var inputArr = $('input#ORDER_PROP_1, input#ORDER_PROP_2, input#ORDER_PROP_3, input.bx-ui-sls-route');
+					}else{
+						var inputArr = $('input#ORDER_PROP_1, input#ORDER_PROP_2, input#ORDER_PROP_3, input.bx-ui-sls-route, input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10');
+					};
+
 					for (var i = 0, len = inputArr.length; i < len; i++){
 						if (inputArr[i].value == ""){
 							inputArr[i].style.backgroundColor = '#f4bfbf';
 							inputArr[i].addEventListener('focus',onInputFocus, true);
 							error = true;
 						}
-					}
+					};
+
 					if(error){
 						return;
 					}else
@@ -198,17 +204,28 @@ if (!function_exists("cmpBySort"))
 						BX.saleOrderAjax.initDeferredControl();
 					<?endif?>
 				}
-				$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
+				var child_payment = + $("#delive_hidden").text().trim();
+				$('ul li.selectDeliveryWay:nth-child('+child_payment+') input').prop('checked',true);
+				$('ul li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 				if( $("#hidecity").text().trim() === "moskow"){
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
 					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#c7c7c7');
 					$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
-					$('ul li.selectDeliveryWay:nth-child(1) input').prop('checked',true);
-					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+					if (child_payment == 1){
+						$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+						$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
+					} else if(child_payment == 3){
+						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
+						$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
+					}
+					if ($('ul li.selectDeliveryWay:nth-child(3) input').is(":checked" )) {
+						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10').prop("disabled", "true");
+					}else{
+						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10').prop("disabled", "false");
+					};
 					console.log('moskow');
 				}else if($("#hidecity").text().trim() === "russia"){
-					$('ul li.selectDeliveryWay:nth-child(2) input').prop('checked',true);
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 					$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
 					$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
@@ -217,6 +234,14 @@ if (!function_exists("cmpBySort"))
 					$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 					$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 					$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+					var str_deliv = $("#deliv_str_hidden").text().trim();
+					if (str_deliv == "str_deliv"){
+						$('ul li.selectDeliveryWay:nth-child(4) .bx_logotype').css('color','#c7c7c7');
+						$('ul li.selectDeliveryWay:nth-child(4) input').prop( "disabled", true);
+					}else{
+						$('ul li.selectDeliveryWay:nth-child(4) .bx_logotype').css('color','#000');
+						$('ul li.selectDeliveryWay:nth-child(4) input').prop( "disabled", false);
+					}
 					console.log('russia');
 				}
 				BX.closeWait();
@@ -334,6 +359,8 @@ if (!function_exists("cmpBySort"))
 
 
 			?>
+			<div class="order_price">Стоимость заказа: <?=$arResult["ORDER_PRICE_FORMATED"]?></div>
+			<div class="delive">Стоимость доставки: <?=$arResult["DELIVERY_PRICE_FORMATED"]?></div>
 			<div class="itog_price">Итоговая стоимость заказа: <?=$arResult["ORDER_TOTAL_PRICE_FORMATED"]?></div>
 
 			<div class="bx_ordercart_order_pay_center">
@@ -398,7 +425,9 @@ if (!function_exists("cmpBySort"))
 	}
 	?>
     <script type="text/javascript">
-		$('li.selectPaymentWay:nth-child(1) input').prop('checked',true);
+		var child_payment = + $("#delive_hidden").text().trim();
+		$('ul li.selectDeliveryWay:nth-child('+child_payment+') input').prop('checked',true);
+		$('ul li.selectPaymentWay:nth-child(1) input').prop('checked',true);
 		if( $("#hidecity").text().trim() === "moskow"){
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", true);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", false);
@@ -406,9 +435,10 @@ if (!function_exists("cmpBySort"))
 			$('ul li.selectDeliveryWay:nth-child(odd) .bx_logotype').css('color','#000');
 			$('ul li.selectDeliveryWay:nth-child(1) input').prop('checked',true);
 			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+			$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 			console.log('moskow');
 		}else if($("#hidecity").text().trim() === "russia"){
-			$('ul li.selectDeliveryWay:nth-child(2) input').prop('checked',true);
+//			$('ul li.selectDeliveryWay:nth-child(2) input').prop('checked',true);
 			$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
 			$('ul li.selectDeliveryWay:nth-child(odd) input').prop( "disabled", true);
 			$('ul li.selectDeliveryWay:nth-child(even) .bx_logotype').css('color','#000');
@@ -417,6 +447,14 @@ if (!function_exists("cmpBySort"))
 			$('li.selectPaymentWay:nth-child(6) .bx_logotype').css('color','#c7c7c7');
 			$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 			$('li.selectPaymentWay:nth-child(6) input').prop( "disabled", true);
+			var str_deliv = $("#deliv_str_hidden").text().trim();
+			if (str_deliv == "str_deliv"){
+				$('ul li.selectDeliveryWay:nth-child(4) .bx_logotype').css('color','#c7c7c7');
+				$('ul li.selectDeliveryWay:nth-child(4) input').prop( "disabled", true);
+			}else{
+				$('ul li.selectDeliveryWay:nth-child(4) .bx_logotype').css('color','#000');
+				$('ul li.selectDeliveryWay:nth-child(4) input').prop( "disabled", false);
+			}
 			console.log('russia');
 		}
 		function changeForm(){

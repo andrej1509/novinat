@@ -123,6 +123,22 @@
 </script>
 
 <input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult["BUYER_STORE"]?>" />
+<? if($arResult["DELIVERY"]["simple"]["PROFILES"]["simple"]["CHECKED"]== "Y") {
+	$PARAM_DEL = 1;
+} elseif ($arResult["DELIVERY"]["ems"]["PROFILES"]["delivery"]["CHECKED"]== "Y") {
+	$PARAM_DEL = 2;
+} elseif ($arResult["DELIVERY"]["2"]["CHECKED"]== "Y") {
+	$PARAM_DEL = 3;
+}elseif ($arResult["DELIVERY"]["sdek"]["PROFILES"]["courier"]["CHECKED"]== "Y"){
+	$PARAM_DEL = 4;
+}?>
+<?if (count($arResult["DELIVERY"]) == 1) {
+	$PARAM_STR = "str_deliv";
+}else {
+	$PARAM_STR = "";
+}?>
+<div id="delive_hidden"><? echo $PARAM_DEL?></div>
+<div id="deliv_str_hidden"><? echo $PARAM_STR?></div>
 <div class="bx_section delivery">
     <h4>Выберите способ доставки</h4>
     <ul class="delivery-method">
@@ -134,7 +150,7 @@
                     id="ID_DELIVERY_simple_simple"
                     name="DELIVERY_ID"
                     value="simple:simple"
-                   onclick="changeForm()"/>
+                   onclick="changeForm();submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -152,7 +168,7 @@
                     id="ID_DELIVERY_ems_delivery"
                     name="DELIVERY_ID"
                     value="ems:delivery"
-                    />
+					onclick="submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -170,7 +186,7 @@
                     id="ID_DELIVERY_ID_2"
                     name="DELIVERY_ID"
                     value="2"
-                    onclick="changeForm()"/>
+					onclick="changeForm();submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -188,7 +204,7 @@
                     id="ID_DELIVERY_sdek_courier"
                     name="DELIVERY_ID"
                     value="sdek:courier"
-                    />
+					onclick="BX('ID_DELIVERY_sdek_courier').checked=true;submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
