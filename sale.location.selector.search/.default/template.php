@@ -22,6 +22,19 @@ Loc::loadMessages(__FILE__);
 	<div id="hidecity" style="display: none">
 		<?echo ($arResult["PATH"][3]["ID"]==3) ? 'moskow': 'russia'?>
 	</div>
+	<?if ($arResult["PATH"][3]["ID"]==3) {
+		if ($arResult["PATH"][129]["ID"] == 129) {
+			$IN_MOSKVA = "250";
+		} else {
+			$IN_MOSKVA = "320";
+		}
+	}else{
+		$IN_MOSKVA = "";
+	}?>
+
+	<div id="hideinmosk" style="display: none">
+		<?echo $IN_MOSKVA?>
+	</div>
 	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-sls <?if(strlen($arResult['MODE_CLASSES'])):?> <?=$arResult['MODE_CLASSES']?><?endif?>">
 
 		

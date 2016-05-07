@@ -41,6 +41,10 @@
 #order_form_div input#ORDER_PROP_7{
 	display: none;
 }
+
+#order_form_div .adress{
+	display: none;
+}
 #order_form_div .title {
 	font-weight: bold;
 	font-size: 15px;

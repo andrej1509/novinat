@@ -129,13 +129,17 @@
 	$PARAM_DEL = 3;
 }elseif ($arResult["DELIVERY"]["sdek"]["PROFILES"]["courier"]["CHECKED"]== "Y"){
 	$PARAM_DEL = 4;
-}?>
-<?if (count($arResult["DELIVERY"]) == 1) {
+}
+if (count($arResult["DELIVERY"]) == 1) {
 	$PARAM_STR = "str_deliv";
 }else {
 	$PARAM_STR = "";
-}?>
+}
+$arResult["DELIVERY"] = array();
+?>
+
 <div id="delive_hidden" style="display: none"><? echo $PARAM_DEL?></div>
+<div id="offer_price_hidden" style="display: none"><? echo $arResult["ORDER_PRICE"]?></div>
 <div id="deliv_str_hidden" style="display: none"><? echo $PARAM_STR?></div>
 <div class="bx_section delivery">
     <h4>Выберите способ доставки</h4>
@@ -148,7 +152,7 @@
                     id="ID_DELIVERY_simple_simple"
                     name="DELIVERY_ID"
                     value="simple:simple"
-                   onclick="changeForm();submitForm()"/>
+                   onclick="changeForm();"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -166,7 +170,7 @@
                     id="ID_DELIVERY_ems_delivery"
                     name="DELIVERY_ID"
                     value="ems:delivery"
-					onclick="submitForm()"/>
+					onclick="recAdress();submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -184,7 +188,7 @@
                     id="ID_DELIVERY_ID_2"
                     name="DELIVERY_ID"
                     value="2"
-					onclick="changeForm();submitForm()"/>
+					onclick="changeForm();"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>
@@ -202,7 +206,7 @@
                     id="ID_DELIVERY_sdek_courier"
                     name="DELIVERY_ID"
                     value="sdek:courier"
-					onclick="BX('ID_DELIVERY_sdek_courier').checked=true;submitForm()"/>
+					onclick="recAdress();submitForm()"/>
                 <div class="bx_logotype">
                     <div class="logotype_border">
                         <strong>

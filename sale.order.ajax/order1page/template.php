@@ -101,7 +101,15 @@ if (!function_exists("cmpBySort"))
 		{
 			?>
 			<script type="text/javascript">
+			function recAdress(){
+				$('#order_form_div .adress').empty();
+				var index_s = $('input#ORDER_PROP_4').val(),
+					street = $('input#ORDER_PROP_20').val(),
+					house = $('input#ORDER_PROP_9').val(),
+					room = $('input#ORDER_PROP_10').val();
 
+				$('#order_form_div').append("<div class='adress'><div class='index'>"+index_s+"</div><div class='street'>"+street+"</div><div class='house'>"+house+"</div><div class='room'>"+room+"</div></div>")
+			}
 			<?if(CSaleLocation::isLocationProEnabled()):?>
 
 				<?
@@ -123,7 +131,6 @@ if (!function_exists("cmpBySort"))
 				))?>);
 
 			<?endif?>
-
 			var BXFormPosting = false;
 			function submitForm(val)
 			{
@@ -152,8 +159,6 @@ if (!function_exists("cmpBySort"))
 					}
 				}
 
-				if (BXFormPosting === true)
-					return true;
 
 				BXFormPosting = true;
 				if(val != 'Y')
@@ -219,11 +224,19 @@ if (!function_exists("cmpBySort"))
 						$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", true);
 						$('li.selectPaymentWay:nth-child(5) .bx_logotype').css('color','#c7c7c7');
 					}
-					if ($('ul li.selectDeliveryWay:nth-child(3) input').is(":checked" )) {
-						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "none");
-					}else{
-						$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "inline-block");
-					};
+					if ($('ul li.selectDeliveryWay:nth-child(2) input').is(":checked" )) {
+						var offer_price = "Стоимость заказа: " + $("#offer_price_hidden").text().trim() + " руб.";
+						var order_price = "Стоимость доставки: " + $("#hideinmosk").text().trim() + " руб.";
+						var sumItogPrice = +$("#offer_price_hidden").text().trim() + (+$("#hideinmosk").text().trim());
+						var itog_order_price = "Итоговая стоимость заказа: " + sumItogPrice + " руб.";
+
+						$('.order_price').text(offer_price);
+						$('.delive').text(order_price);
+						$('.itog_price').text(itog_order_price);
+
+						$('ul li.selectDeliveryWay:nth-child(1) input').prop('checked',true);
+					}
+
 					console.log('moskow');
 				}else if($("#hidecity").text().trim() === "russia"){
 					$('ul li.selectDeliveryWay:nth-child(even) input').prop( "disabled", false);
@@ -242,6 +255,17 @@ if (!function_exists("cmpBySort"))
 						$('ul li.selectDeliveryWay:nth-child(4) .bx_logotype').css('color','#000');
 						$('ul li.selectDeliveryWay:nth-child(4) input').prop( "disabled", false);
 					}
+
+					var index_s = $('#order_form_div .adress .index').text(),
+						street = $('#order_form_div .adress .street').text(),
+						house = $('#order_form_div .adress .house').text(),
+						room = $('#order_form_div .adress .room').text();
+
+					$('input#ORDER_PROP_4').val(index_s);
+					$('input#ORDER_PROP_20').val(street);
+					$('input#ORDER_PROP_9').val(house);
+					$('input#ORDER_PROP_10').val(room);
+
 					console.log('russia');
 				}
 				BX.closeWait();
@@ -458,6 +482,27 @@ if (!function_exists("cmpBySort"))
 			console.log('russia');
 		}
 		function changeForm(){
+			if ($('ul li.selectDeliveryWay:nth-child(3) input').is(":checked" )) {
+				$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "none");
+				var offer_price = "Стоимость заказа: " + $("#offer_price_hidden").text().trim() + " руб.";
+				var order_price = "Стоимость доставки: 0 руб.";
+				var sumItogPrice = +$("#offer_price_hidden").text().trim();
+				var itog_order_price = "Итоговая стоимость заказа: " + sumItogPrice + " руб.";
+
+				$('.order_price').text(offer_price);
+				$('.delive').text(order_price);
+				$('.itog_price').text(itog_order_price);
+			}else if ($("#hidecity").text().trim() === "moskow"){
+				var offer_price = "Стоимость заказа: " + $("#offer_price_hidden").text().trim() + " руб.";
+				var order_price = "Стоимость доставки: " + $("#hideinmosk").text().trim() + " руб.";
+				var sumItogPrice = +$("#offer_price_hidden").text().trim() + (+$("#hideinmosk").text().trim());
+				var itog_order_price = "Итоговая стоимость заказа: " + sumItogPrice + " руб.";
+
+				$('.order_price').text(offer_price);
+				$('.delive').text(order_price);
+				$('.itog_price').text(itog_order_price);
+				$('input#ORDER_PROP_4, input#ORDER_PROP_20, input#ORDER_PROP_9, input#ORDER_PROP_10, .hide_block').css("display", "inline-block");
+			};
 			if($('li.selectDeliveryWay:nth-child(1) input').prop('checked')){
 				$('li.selectPaymentWay:nth-child(5) input').prop( "disabled", false);
 				$('li.selectPaymentWay:nth-child(6) input').prop('checked',false);

@@ -33,7 +33,7 @@ if(typeof BX.Sale.component.location.selector.search == 'undefined' && typeof BX
                                 path += ', ' + this.vars.cache.path[cItem.PATH[i]]; // deprecated 
                             }
                         }
-
+						
 						// if (cItem.CODE == "0000028025" ||
 						// 	(cItem.PATH.length==4 && cItem.PATH[1] == 3)||
 						// 	(cItem.PATH.length==3 && cItem.PATH[0] == 3))
